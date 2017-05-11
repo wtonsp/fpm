@@ -369,7 +369,7 @@ class FPM::Package::Deb < FPM::Package
     case compression
       when "gz"
         datatar = "data.tar.gz"
-        compression = "-z"
+        compression = "--use-compress-program=pigz"
       when "bzip2","bz2"
         datatar = "data.tar.bz2"
         compression = "-j"
