@@ -269,7 +269,7 @@ class FPM::Package::Deb < FPM::Package
     case compression
       when "gz"
         controltar = "control.tar.gz"
-        compression = "-z"
+        compression = "--use-compress-program=pigz"
       when "bzip2","bz2"
         controltar = "control.tar.bz2"
         compression = "-j"
@@ -577,7 +577,7 @@ class FPM::Package::Deb < FPM::Package
     case self.attributes[:deb_compression]
       when "gz", nil
         datatar = build_path("data.tar.gz")
-        compression = "-z"
+        compression = "--use-compress-program=pigz"
       when "bzip2"
         datatar = build_path("data.tar.bz2")
         compression = "-j"
